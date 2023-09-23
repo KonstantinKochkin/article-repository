@@ -363,6 +363,7 @@ def newFavList(name):
                 links.append((fav_list_id, row[0]))
             c.executemany(
                 "INSERT INTO favourite_links (list_id, article_id) VALUES (?, ?)", links)
+            c.close()
             conn.commit()
             conn.close()
             utils.encrypt(dbname, getDBname())
